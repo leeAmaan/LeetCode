@@ -1,23 +1,27 @@
 class MyQueue:
     def __init__(self):
-        self.stack = []
+        self.input = []
+        self.output = []
 
     def push(self, x: int) -> None:
-        self.stack.append(x)
+        self.input.append(x)
         
 
     def pop(self) -> int:
-        return self.stack.pop(0)
+        self.peek()
+        return self.output.pop()
         
 
     def peek(self):
         # output이 없으면 모두 재입력
-        return self.stack[0]
+        if not self.output:
+            while self.input:
+                self.output.append(self.input.pop())
+        return self.output[-1]
         
 
     def empty(self):
-        return len(self.stack) == 0
-        
+        return self.input == [] and self.output == []        
         
 
 
