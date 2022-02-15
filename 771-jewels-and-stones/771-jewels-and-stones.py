@@ -1,19 +1,15 @@
 class Solution:
     def numJewelsInStones(self, jewels: str, stones: str) -> int:
-        freqs = {}
+        freqs = collections.defaultdict(int)
         count = 0 
         
-        # 돌(stones)의 빈도 수 계산
+        # 비교 없이 돌(stones)의 빈도 수 계산
         for char in stones:
-            if char not in freqs:
-                freqs[char] = 1
-            else:
-                freqs[char] += 1
-        
-        # 보석(jewels)의 빈도 수 합산
+            freqs[char] += 1
+            
+        # 비교 없이 보석(jewels)의 빈도 수 합산
         for char in jewels:
-            if char in freqs:
-                count += freqs[char]
+            count += freqs[char]
                 
         return count
         
