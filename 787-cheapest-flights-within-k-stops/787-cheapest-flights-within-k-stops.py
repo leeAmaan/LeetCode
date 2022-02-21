@@ -1,8 +1,6 @@
 class Solution:
     def findCheapestPrice(self, n, flights, src, dst, k):
-        from collections import defaultdict
-        import heapq
-        graph = defaultdict(set)
+        graph = collections.defaultdict(set)
         
         for s, d, weight in flights:
             graph[s].add((d, weight))
