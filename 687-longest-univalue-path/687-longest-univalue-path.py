@@ -5,33 +5,35 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    result: int = 0
-        
-        
+    
     def longestUnivaluePath(self, root: Optional[TreeNode]) -> int:
-        def dfs(node: TreeNode):
+        max_len = 0
+        def dfs(node):
+            nonlocal max_len
+            
             if node is None:
                 return 0
             
-            # 존재하지 않는 노드까지 DFS 재귀 탐색
-            left = dfs(node.left)
-            right = dfs(node.right)
+            wide = 0
+            current = 0
             
-            # 현재 노드가 자식 노드와 동일한 경우 거리 1 증가
-            if node.left and node.left.val == node.val:
-                left += 1
-            else:
-                left = 0
-            if node.right and node.right.val == node.val:
-                right += 1
-            else:
-                right = 0
-                
-            # 왼쪽과 오른쪽 자식 노드 간 거리의 합 최댓값이 결과
-            self.result = max(self.result, left + right)
-            # 자식 노드 상태값 중 큰 값 리턴
-            return max(left, right)
-        
+            if node.left:
+                left = dfs(node.left)
+                if node.left.val == node.val:
+                    wide += 1 + left
+                    current = max(current, 1+left)
+            
+            if node.right:
+                right = dfs(node.right)
+                if node.right.val == node.val:
+                    wide += 1 + right
+                    current = max(current, 1+right)
+            
+            max_len = max(max_len, wide, current)
+            
+            return current
         dfs(root)
-        return self.result
+        return max_len
+            
+   
         
