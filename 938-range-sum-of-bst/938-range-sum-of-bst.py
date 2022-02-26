@@ -7,9 +7,9 @@
 class Solution:
     def rangeSumBST(self, root: Optional[TreeNode], low: int, high: int) -> int:
         stack, sum = [root], 0
-        # 스택 이용 필요한 노드 DFS 반복
+        # 큐 연산을 이용해 반복 구조 BFS로 필요한 노드 탐색
         while stack:
-            node = stack.pop()
+            node = stack.pop(0)
             if node:
                 if node.val > low:
                     stack.append(node.left)
