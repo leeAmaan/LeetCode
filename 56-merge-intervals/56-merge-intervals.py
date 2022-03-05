@@ -6,11 +6,8 @@ class Solution:
             if merged == []:
                 merged.append(intervals[i])
             else:
-                previous_end = merged[-1][1]
-                current_start = intervals[i][0]
-                current_end = intervals[i][1]
-                if previous_end >= current_start: # overlap
-                    merged[-1][1] = max(previous_end,current_end)
+                if intervals[i][0] <= merged[-1][1]: # overlap
+                    merged[-1][1] = max(merged[-1][1],intervals[i][1])
                 else:
                     merged.append(intervals[i])
         return merged
