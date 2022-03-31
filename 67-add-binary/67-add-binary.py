@@ -1,10 +1,7 @@
 class Solution:
     def addBinary(self, a: str, b: str) -> str:
-        carry = 0
-        result=''
+        carry, result, a, b = 0, '', list(a), list(b)
         
-        a = list(a)
-        b = list(b)
         
         while a or b or carry:
             if a:
