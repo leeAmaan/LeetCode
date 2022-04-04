@@ -5,22 +5,20 @@
 #         self.next = next
 class Solution:
     def swapNodes(self, head: ListNode, k: int) -> ListNode:
-        dummy = pre_right = pre_left = ListNode(next=head)
-        right = left = head
-        for i in range(k-1):
-            pre_left = left
-            left = left.next
-
-        null_checker = left
-
-        while null_checker.next:
-            pre_right = right
-            right = right.next
-            null_checker = null_checker.next
-
-        if left == right:
-            return head
-
-        pre_left.next, pre_right.next = right, left
-        left.next, right.next = right.next, left.next
-        return dummy.next 
+        
+        # 투 포인터로 풀어보자
+        # 값 지정해주기 
+        slow, fast = head, head 
+        
+        # 1단계
+        for _ in range(k-1):
+            fast = fast.next
+        first = fast
+        
+        # 2단계
+        while fast.next:
+            slow, fast = slow.next, fast.next
+        
+        # 3단계 
+        first.val, slow.val = slow.val, first.val
+        return head
