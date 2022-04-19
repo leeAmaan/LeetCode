@@ -33,3 +33,6 @@ class Solution(object):
             self.dfs(root.left, res)
             res.append(root)
             self.dfs(root.right, res)
+
+            
+## 어렵다. 내가 푼거 아니다 절대로 
