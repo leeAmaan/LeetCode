@@ -19,8 +19,7 @@ class MyHashMap:
     def remove(self, key: int) -> None:
         if key in self.hashMap:
             del self.hashMap[key]
-
-
+## 이거 안푼거니 제대로 다시 풀 것 
 # Your MyHashMap object will be instantiated and called as such:
 #obj = MyHashMap()
 #obj.put(key,value)
