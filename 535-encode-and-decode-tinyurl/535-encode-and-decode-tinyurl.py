@@ -1,0 +1,27 @@
+class Codec:
+    def __init__(self):
+        self.long_short = {}
+        self.short_long = {}
+        self.alphabet = "abcdefghijklmnopqrstuvwxyz"
+
+    def encode(self, longUrl: str) -> str:
+        while longUrl not in self.long_short:
+            code = "".join(choices(self.alphabet, k=6))
+            if code not in self.short_long:
+                self.short_long[code] = longUrl
+                self.long_short[longUrl] = code
+            return 'http://tinyurl.com/' + self.long_short[longUrl]
+                    
+        """Encodes a URL to a shortened URL.
+        """
+        
+
+    def decode(self, shortUrl: str) -> str:
+        return self.short_long[shortUrl[-6:]]
+        """Decodes a shortened URL to its original URL.
+        """
+        
+
+# Your Codec object will be instantiated and called as such:
+# codec = Codec()
+# codec.decode(codec.encode(url))
