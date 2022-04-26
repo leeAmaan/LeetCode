@@ -17,3 +17,5 @@ class Solution:
                 for record in c[j]: heapq.heappush(heap, record)
             if cnt >= n: break 
         return ans
+    
+    ## 다시 풀자....
