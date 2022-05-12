@@ -1,15 +1,8 @@
 class Solution:
     def permuteUnique(self, nums: List[int]) -> List[List[int]]:
-        result = []
-        nums.sort()
-        self.dfs(nums, [], result)
+        result = [[]]
+        for n in nums:
+            result = [p[:i] + [n] + p[i:]
+                     for p in result
+                     for i in range((p + [n]).index(n) + 1)]
         return result
-    
-    def dfs(self, nums, path, result):
-        if not nums:
-            result.append(path)
-        for i in range(len(nums)):
-            if i > 0 and nums[i] == nums[i-1]:
-                continue
-            self.dfs(nums[:i]+nums[i+1:], path+[nums[i]], result)
-            
