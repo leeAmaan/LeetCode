@@ -1,3 +1,9 @@
 class Solution:
-    def hasAllCodes(self, s: str, k: int) -> bool:
-         return len({s[i:i + k] for i in range(len(s) - k + 1)}) == 2 ** k
+    def hasAllCodes(self, s, k):
+        last = int(s[:k], 2)
+        ss = {last}
+        for i in range(k, len(s)):
+            last = last*2 - (int(s[i-k])<<k)  + int(s[i])
+            ss.add(last)
+        
+        return len(ss) == 1<<k
