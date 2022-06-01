@@ -1,0 +1,1 @@
+class Solution: runningSum = accumulate
