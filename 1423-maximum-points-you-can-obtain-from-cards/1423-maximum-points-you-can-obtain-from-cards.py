@@ -1,16 +1,18 @@
 class Solution:
     def maxScore(self, cardPoints: List[int], k: int) -> int:
-        size = len(cardPoints) - k 
-        minSubArraySum = float('inf')
-        j = curr = 0
+        cardL, cardS = len(cardPoints), sum(cardPoints)
+        minSubArraySum = window = sum(cardPoints[:cardL-k])
+        for i in range(cardL-k, cardL):
+            window = window - cardPoints[i-cardL+k] + cardPoints[i]
+            minSubArraySum = min(minSubArraySum, window)
         
-        for i, v in enumerate(cardPoints):
-            curr += v
-            if i - j +1 > size:
-                curr -= cardPoints[j]
-                j+=1
-            if i - j + 1 == size:
-                minSubArraySum = min(minSubArraySum, curr)
-                
-        return sum(cardPoints) - minSubArraySum
-   
+        return cardS - minSubArraySum
+        
+        
+        
+        
+        
+        
+        
+        
+        
