@@ -16,3 +16,4 @@ class Solution:
             node.right = self.buildTree(preorder, inorder[index + 1:])
             
             return node
+        ## 후위 순회로 바꿔보자 가능할듯 
