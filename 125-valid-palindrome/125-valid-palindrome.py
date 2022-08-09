@@ -1,13 +1,7 @@
 class Solution:
     def isPalindrome(self, s: str) -> bool:
-        strs: Deque = collections.deque()
+        s = s.lower()
+        # 정규식으로 불필요한 문자 필터링
+        s = re.sub('[^a-z0-9]', '', s)
         
-        for char in s:
-            if char.isalnum():
-                strs.append(char.lower())
-                
-        while len(strs) > 1:
-            if strs.popleft() != strs.pop():
-                return False
-            
-        return True
+        return s == s[::-1] 
