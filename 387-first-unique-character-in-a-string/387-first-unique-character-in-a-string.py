@@ -1,9 +1,13 @@
 
 class Solution:
     def firstUniqChar(self, s: str) -> int:
-        
-        letters='abcdefghijklmnopqrstuvwxyz'
-        index=[s.index(i) for i in letters if s.count(i) == 1]
-        return min(index) if len(index) > 0 else -1 
-            
+        d = {}
+        seen = set()
+        for idx, c in enumerate(s):
+            if c not in seen:
+                d[c] = idx
+                seen.add(c)
+            elif c in d:
+                del d[c]
+        return min(d.values()) if d else -1 
             
