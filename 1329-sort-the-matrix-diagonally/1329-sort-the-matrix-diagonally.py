@@ -12,6 +12,7 @@ class Solution:
             diag = []
             while start_row < row and start_col < col:
                 diag.append(mat[start_row][start_col])
+
                 start_row += 1
                 start_col += 1
 
@@ -22,5 +23,4 @@ class Solution:
                 mat[start_row][start_col] = diag.pop()
                 start_row -= 1
                 start_col -= 1
-
         return(mat)
