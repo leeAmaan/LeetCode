@@ -1,5 +1,7 @@
 class Solution:
     def rotate(self, matrix: List[List[int]]) -> None:
-        matrix[:] = zip(*matrix[::-1])
-        
+        m = len(matrix)
+        for i in range(m//2):
+            for j in range(m-m//2):
+                matrix[i][j], matrix[~j][i], matrix[~i][~j], matrix[j][~i] = matrix[~j][i], matrix[~i][~j], matrix[j][~i], matrix[i][j] 
         
