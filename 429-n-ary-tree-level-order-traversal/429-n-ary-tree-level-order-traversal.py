@@ -8,8 +8,8 @@ class Node:
 
 class Solution:
     def levelOrder(self, root: 'Node') -> List[List[int]]:
-        q, res = [root], []
-        while any(q):
+        q, res = [root] if root else [], []
+        while q:
             res.append([node.val for node in q])
             #print(ret)
             q = [child for node in q for child in node.children if child]
