@@ -12,7 +12,7 @@ class Solution:
                 if x > y)
         #print(profits(prices[1:]))
         profits = [0]*len(prices)
-        #print(profits)
+        print(profits)
         
         for i in range(k):
             preprofit = 0
