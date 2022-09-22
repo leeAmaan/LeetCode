@@ -1,7 +1,7 @@
 class Solution:
     def reverseWords(self, s: str) -> str:
-        res = 0 
-        print(s[1])
+        # res = 0 
+        # print(s[1])
         
         
         
