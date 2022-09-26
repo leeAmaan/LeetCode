@@ -1,6 +1,7 @@
 class Solution:
     def equationsPossible(self, equations: List[str]) -> bool:
         graph = collections.defaultdict(set)
+        print(graph)
         notEquals = []
         
         def canMeet(u, target, visited):
