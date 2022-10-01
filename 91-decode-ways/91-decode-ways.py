@@ -17,6 +17,6 @@ class Solution:
             else:
                 return dfs(string[1:])
 
-        result_sum = dfs(s)
+        
 
-        return result_sum
+        return dfs(s)
