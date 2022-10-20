@@ -5,6 +5,7 @@ class Solution:
         
         for i in roman:
             res += (num//i) * roman[i]
+            print(res, roman[i])
             num %= i 
             
         return res
