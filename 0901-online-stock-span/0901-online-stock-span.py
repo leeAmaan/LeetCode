@@ -7,7 +7,7 @@ class StockSpanner:
 
     def next(self, price: int) -> int:
         curDay = self.stack[-1][1]+1
-        print(curDay)
+        #print(curDay)
         while price >= self.stack[-1][0]:
             self.stack.pop(-1)
             
