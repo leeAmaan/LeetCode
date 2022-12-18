@@ -6,5 +6,8 @@ class Solution:
             while stack and cur > temperatures[stack[-1]]:
                 last = stack.pop()
                 answer[last] = i - last 
-            stack.append(i)    
+            stack.append(i)
+            #print(stack)
+            #print(stack[-1])
+            #print(answer)
         return answer
