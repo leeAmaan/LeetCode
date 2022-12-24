@@ -9,12 +9,12 @@ class ListNode:
 class MyHashMap:
 
     def __init__(self):
-        self.size = 1000000000000000
+        #self.size = 1000000000000000
         self.table = collections.defaultdict(ListNode)
         
     # 삽입 기능     
     def put(self, key: int, value: int) -> None:
-        index = key % self.size
+        index = key #% self.size
         # 인덱스에 노드가 없다면 삽입 후 종료 
         if self.table[index].value is None:
             self.table[index] = ListNode(key, value)
@@ -33,7 +33,7 @@ class MyHashMap:
     
     # 조회 기능 
     def get(self, key: int) -> int:
-        index = key % self.size
+        index = key #% self.size
         if self.table[index].value is None:
             return -1
         
@@ -47,7 +47,7 @@ class MyHashMap:
     
     # 삭제 기능     
     def remove(self, key: int) -> None:
-        index = key % self.size
+        index = key #% self.size
         if self.table[index].value is None:
             return 
         
