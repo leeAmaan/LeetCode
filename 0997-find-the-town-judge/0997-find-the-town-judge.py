@@ -6,7 +6,7 @@ class Solution:
         for elem1, elem2 in trust:
             cands[elem2] += 1
             cands[elem1] -= 1
-        print(cands)
+        #print(cands)
         return cands.index(n-1) if n-1 in cands else -1
          
         """
