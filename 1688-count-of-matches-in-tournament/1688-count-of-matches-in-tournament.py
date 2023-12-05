@@ -3,7 +3,7 @@ class Solution:
         total_matches = 0
         mid = n
         while mid > 1:
-            print(mid)
+            # print(mid)
             if mid%2 == 0:
                 total_matches += (mid//2)
                 mid = mid//2 
