@@ -1,24 +1,31 @@
+from collections import Counter
+
 class Solution:
     def findWinners(self, matches: List[List[int]]) -> List[List[int]]:
-        # Convert matches to [[winner, winner, ...], [loser, loser, ...]]
-        wl = list(zip(*matches))
+        win_lose = list(zip(*matches))
+        # print(win_lose)
+        no_lost = set(win_lose[0])
+        # print(no_lost)
         
-        # Initialize lostZero to all winners.
-        # We will remove a winner if he/she loses a match.
-        lostZero = set(wl[0])
+        one_lost = []
         
-        # We will append if he/she lost exactly one match.
-        lostOne = []
+        count_lost = Counter(win_lose[1])
         
-        # count the number of matches he/she losts.
-        countLost = Counter(wl[1])
+        for key in count_lost.keys():
+            if count_lost[key] > 0 and key in no_lost:
+                no_lost.remove(key)
+            if count_lost[key]==1:
+                one_lost.append(key)
         
+        return [sorted(list(no_lost)), sorted(list(one_lost))]
         
-        for key in countLost.keys():
-            # Remove a winner if he/she lost a match.
-            if countLost[key] > 0 and key in lostZero: lostZero.remove(key)
-            # Append if he/she lost exactly one match.
-            if countLost[key] == 1: lostOne.append(key)
-        
-        # Sort the two lists before return
-        return [sorted(list(lostZero)),sorted(lostOne)]
+        # win = []
+        # lose = []
+        # for i in range(len(matches)):
+        #     win.append(matches[i][0])
+        #     lose.append(matches[i][1])
+        # res = set(win)-set(lose)
+        # lose = Counter(lose)        
+        # x = {key: value for key, value in lose.items() if value < 2}
+        # lose = list(x.keys())
+        # return[res, sorted(lose)]
