@@ -12,15 +12,3 @@ class Solution:
                     
         return min(m[len(m)-1])
         
-        
-        #n = len(matrix[0])
-        #ans = 0
-        #for i in range(n):
-        #    #matrix[i]
-        #    li = []
-        #    for j in range(n): 
-        #        li.append(matrix[i][j])
-        #        print(li)
-        #    ans += min(li)
-        #    print(ans)
-        #return ans
