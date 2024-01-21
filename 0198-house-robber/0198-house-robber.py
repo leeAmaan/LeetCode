@@ -1,7 +1,23 @@
 class Solution:
     def rob(self, nums: List[int]) -> int:
-        last, now = 0, 0 
+        if not nums:
+            return 0 
+        if len(nums) <= 2:
+            return max(nums)
         
-        for num in nums: 
-            last, now = now, max(last + num, now)
-        return now 
+        dp = collections.defaultdict()
+        dp[0], dp[1] = nums[0], max(nums[0], nums[1])
+        
+        for i in range(2, len(nums)):
+            dp[i] = max(dp[i-1], dp[i-2]+nums[i])
+        # print(dp)
+        return dp.popitem()[1]
+        
+        
+#         ans = 0
+#         ans1 = 0 
+#         nums
+#         [1000, 1, 50000, 30000, 40000]
+        
+        
+        
